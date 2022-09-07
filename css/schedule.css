@@ -1,0 +1,135 @@
+.schedule {
+  text-align: center;
+  width: 90%;
+  border-radius: 4px;
+  margin: 14rem auto;
+}
+
+.schedule-contain {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.day-header h3, .day-header-wide h3 {
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 400;
+}
+
+
+.day-accordion {
+  background-color: var(--transparent-white);
+}
+
+.day-header-wide {
+  display: flex;
+  align-items: center;
+  display: none;
+}
+
+.day-header, .day-header-wide {
+  height: 75px;
+  position: relative;
+  padding: 20px 20px;
+
+}
+
+.day-header {
+  cursor: pointer;
+  text-align: left;
+}
+
+.day-header::after {
+  content: "\002b";
+  font-size: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
+.day-header.active::after {
+  content: "\2212";
+}
+
+.day-accordian-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .2s ease-in-out;
+}
+
+.daily-schedule li {
+  list-style: none;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid white;
+  width: 90%;
+  margin: auto;
+}
+
+.daily-schedule li:last-of-type {
+  border-bottom: none;
+}
+
+.daily-schedule li > span {
+  display: block;
+}
+
+.schedule-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.schedule-time {
+  color: var(--lt-blue);
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .5px;
+}
+
+.schedule-name, .schedule-desc {
+  margin-bottom: .5rem;
+}
+
+
+/* MEDIA QUERIES */
+
+@media (min-width: 768px) {
+
+  .day-header::after, .day-header.active::after {
+    content: "";
+  }
+
+  .day-header {
+    display: none;
+  }
+
+  .day-header-wide {
+    display: inline-block;
+  }
+
+
+  .schedule-contain {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .day-accordion {
+    background-color: transparent;
+  }
+
+  .day-header {
+    text-align: center;
+  }
+
+  .daily-schedule li {
+    max-width: 300px;
+  }
+
+  .day-accordian-body {
+    background-color: var(--transparent-white);
+    overflow: visible;
+    max-height: 1000px;
+  }
+
+}
